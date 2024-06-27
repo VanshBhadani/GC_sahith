@@ -27,6 +27,9 @@ detector = HandDetector(detectionCon=0.8, maxHands=1)
 
 while True:
     success, img = cap.read()
+    if not success:
+        print("Failed to capture image")
+        break
     img = cv2.flip(img, 1)
     pathFullImage = os.path.join(folderPath, pathImages[imgNumber])
     imgCurrent = cv2.imread(pathFullImage)
